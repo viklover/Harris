@@ -1,0 +1,10 @@
+# IDE
+.vs
+.idea
+.vscode
+
+# Building
+/**/bin
+/**/obj
+
+terminal-state-map
