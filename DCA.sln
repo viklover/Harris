@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DCA.Core", "DCA.Core\DCA.Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DCA.Pinger", "DCA.Pinger\DCA.Pinger.csproj", "{90535BF5-0DB4-4532-96F0-0D54579A3BCA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DCA.Core.Test", "DCA.Core.Test\DCA.Core.Test.csproj", "{0617D473-9376-476C-A56C-F8732802896B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{90535BF5-0DB4-4532-96F0-0D54579A3BCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90535BF5-0DB4-4532-96F0-0D54579A3BCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90535BF5-0DB4-4532-96F0-0D54579A3BCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0617D473-9376-476C-A56C-F8732802896B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0617D473-9376-476C-A56C-F8732802896B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0617D473-9376-476C-A56C-F8732802896B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0617D473-9376-476C-A56C-F8732802896B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

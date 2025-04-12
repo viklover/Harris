@@ -13,12 +13,16 @@
 
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
-    <PackageReference Include="JsonHelper.Net" Version="1.1.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Process/" />
   </ItemGroup>
+
+
+  <PropertyGroup>
+    <NoWarn>NETSDK1138</NoWarn>
+  </PropertyGroup>
 
 </Project>

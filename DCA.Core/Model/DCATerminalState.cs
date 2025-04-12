@@ -3,6 +3,10 @@ namespace DCA.Core.Model;
 ///     Состояние терминала DCA
 /// </summary>
 public enum DCATerminalState {
+    /// <summary>
+    ///     Состояние отсутствует
+    /// </summary>
+    None = 0,
     /// <summary> 
     ///     Ожидание ввода данных (общий случай)
     /// </summary>
@@ -32,11 +36,11 @@ public enum DCATerminalState {
     /// </summary>
     AwaitingCdrInput = 7,
     /// <summary>
-    ///     Ожидание ввода EDT (уточнить значение в контексте)
+    ///     Ожидание ввода EDT
     /// </summary>
     AwaitingEdtInput = 8,
     /// <summary>
-    ///     Ожидание ввода STS (уточнить значение в контексте)
+    ///     Ожидание ввода STS
     /// </summary>
     AwaitingStsInput = 9,
     /// <summary>

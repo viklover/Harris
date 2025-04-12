@@ -8,16 +8,19 @@ namespace DCA.Core.Process;
 /// <summary>
 ///     Клиент DCA
 /// </summary>
-public class DCASerialPort {
-    private readonly SerialPort _serialPort;
+public class DCASerialPort : IDCAStateSource {
     private readonly Dictionary<string, DCATerminalState> _config;
+    /// <summary>
+    ///     Серийный порт
+    /// </summary>
+    public SerialPort SerialPort { get; }
     /// <summary>
     ///     Конструктор DCA
     /// </summary>
     /// <param name="serialPort">Серийный порт</param>
     /// <param name="config">Конфигурация</param>
     public DCASerialPort(SerialPort serialPort, Dictionary<string, DCATerminalState> config) {
-        _serialPort = serialPort;
+        SerialPort = serialPort;
         _config = config;
     }
     /// <summary>
@@ -29,14 +32,22 @@ public class DCASerialPort {
         [EnumeratorCancellation] CancellationToken cancellationToken
     ) {
         while (!cancellationToken.IsCancellationRequested) {
-            var text = await ReadAsync(10000, 5000, cancellationToken);
-            await Console.Out.WriteAsync(text);
+            var text = await ReadAsync(10000, 10000, cancellationToken);
             foreach (var (value, state) in _config) {
                 if (text.Contains(value)) {
                     yield return state;
                 }
             }
         }
+    }
+    /// <summary>
+    ///     Отправить массив байтов в серийный порт в асинхронной манере 
+    /// </summary>
+    /// <param name="message">Сообщение представленное массивом байтов</param>
+    /// <param name="cancellationToken">Токен отмены асинхронной операции</param>
+    /// <returns>Асинхронная задача на отправку сообщения в серийный порт</returns>
+    public ValueTask WriteAsync(byte[] message, CancellationToken cancellationToken) {
+        return SerialPort.BaseStream.WriteAsync(message, cancellationToken);
     }
     /// <summary>
     ///     Прочитать данные с указанным timeout в асинхронной манере
@@ -60,7 +71,7 @@ public class DCASerialPort {
     public async Task<byte[]> ReadBytesAsync(int bufferLenght, int timeoutMs, CancellationToken cancellationToken) {
         using var tokenSource = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
         tokenSource.CancelAfter(timeoutMs);
-        var buffer = await _serialPort.ReadAsync(bufferLenght, tokenSource.Token);
+        var buffer = await SerialPort.ReadAsync(bufferLenght, tokenSource.Token);
         return buffer;
     }
 }

@@ -39,7 +39,13 @@ public static class SerialPortExtensions {
         CancellationToken cancellationToken
     ) {
         var buffer = new byte[count];
-        await serialPort.ReadAsync(buffer, 0, count, cancellationToken);
+        try {
+            await serialPort.ReadAsync(buffer, 0, count, cancellationToken);
+        } catch (TaskCanceledException) {
+            if (cancellationToken.IsCancellationRequested) {
+                return buffer;
+            }
+        }
         return buffer;
     }
 }
