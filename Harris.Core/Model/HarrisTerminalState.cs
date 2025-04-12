@@ -1,8 +1,8 @@
-namespace DCA.Core.Model;
+namespace Harris.Core.Model;
 /// <summary>
 ///     Состояние терминала DCA
 /// </summary>
-public enum DCATerminalState {
+public enum HarrisTerminalState {
     /// <summary>
     ///     Состояние отсутствует
     /// </summary>

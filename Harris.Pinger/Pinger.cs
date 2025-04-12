@@ -1,19 +1,19 @@
-using DCA.Core.Process;
+using Harris.Core.Process;
 using Microsoft.Extensions.Logging;
 
-namespace DCA.Pinger;
+namespace Harris.Pinger;
 /// <summary>
 ///     Программа для проверки доступности DCA
 /// </summary>
 public class Pinger {
-    private readonly DCASerialPort _port;
+    private readonly HarrisSerialPort _port;
     private readonly ILogger _logger;
     /// <summary>
     ///     Конструктор программы
     /// </summary>
     /// <param name="port">Порт</param>
     /// <param name="logger">Логгер</param>
-    public Pinger(DCASerialPort port, ILogger logger) {
+    public Pinger(HarrisSerialPort port, ILogger logger) {
         _port = port;
         _logger = logger;
     }

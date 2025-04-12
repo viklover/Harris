@@ -1,6 +1,6 @@
 using CommandLine;
 
-namespace DCA.Pinger;
+namespace Harris.Pinger;
 /// <summary>
 ///     Конфигурация
 /// </summary>

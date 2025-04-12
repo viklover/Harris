@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DCA.Core", "DCA.Core\DCA.Core.csproj", "{67D4444F-5180-41F9-B349-7313878CBA75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harris.Core", "Harris.Core\Harris.Core.csproj", "{67D4444F-5180-41F9-B349-7313878CBA75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DCA.Pinger", "DCA.Pinger\DCA.Pinger.csproj", "{90535BF5-0DB4-4532-96F0-0D54579A3BCA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harris.Pinger", "Harris.Pinger\Harris.Pinger.csproj", "{90535BF5-0DB4-4532-96F0-0D54579A3BCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DCA.Core.Test", "DCA.Core.Test\DCA.Core.Test.csproj", "{0617D473-9376-476C-A56C-F8732802896B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harris.Core.Test", "Harris.Core.Test\Harris.Core.Test.csproj", "{0617D473-9376-476C-A56C-F8732802896B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

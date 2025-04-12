@@ -1,24 +1,24 @@
 using System.Text;
-using DCA.Core.Model;
+using Harris.Core.Model;
 using Newtonsoft.Json.Linq;
 
-namespace DCA.Core.Process;
+namespace Harris.Core.Process;
 /// <summary>
 ///     Хэлпер для предметной области DCA
 /// </summary>
-public class DCAHelper {
+public class HarrisHelper {
     /// <summary>
     ///     Прочитать файл с маппингом строк к типу состояния сессии DCA
     /// </summary>
     /// <param name="file">Путь к файлу</param>
     /// <returns>Маппинг</returns>
-    public static Dictionary<string, DCATerminalState> ReadTerminalStateFile(string file) {
+    public static Dictionary<string, HarrisTerminalState> ReadTerminalStateFile(string file) {
         var fileContent = File.ReadAllText(file, Encoding.UTF8);
         var fileJson = JObject.Parse(fileContent);
-        var result = new Dictionary<string, DCATerminalState>();
+        var result = new Dictionary<string, HarrisTerminalState>();
         foreach (var entry in fileJson) {
             var entryString = entry.Value!.ToObject<string>()!;
-            result[entry.Key] = DCAHelper.ReadTerminalState(entryString);
+            result[entry.Key] = ReadTerminalState(entryString);
         }
         return result;
     }
@@ -27,41 +27,41 @@ public class DCAHelper {
     /// </summary>
     /// <param name="value">Строка</param>
     /// <returns>Состояние терминала</returns>
-    /// <exception cref="DCAException">Не удалось разрешить состояние</exception>
-    public static DCATerminalState ReadTerminalState(string value) {
+    /// <exception cref="HarrisException">Не удалось разрешить состояние</exception>
+    public static HarrisTerminalState ReadTerminalState(string value) {
         if (value == "input") {
-            return DCATerminalState.AwaitingInput;
+            return HarrisTerminalState.AwaitingInput;
         }
         if (value == "input alm") {
-            return DCATerminalState.AwaitingAlarmCode;
+            return HarrisTerminalState.AwaitingAlarmCode;
         }
         if (value == "input cdr") {
-            return DCATerminalState.AwaitingCdrInput;
+            return HarrisTerminalState.AwaitingCdrInput;
         }
         if (value == "input edt") {
-            return DCATerminalState.AwaitingEdtInput;
+            return HarrisTerminalState.AwaitingEdtInput;
         }
         if (value == "input sts") {
-            return DCATerminalState.AwaitingStsInput;
+            return HarrisTerminalState.AwaitingStsInput;
         }
         if (value == "input tel") {
-            return DCATerminalState.AwaitingPhoneNumber;
+            return HarrisTerminalState.AwaitingPhoneNumber;
         }
         if (value == "auth") {
-            return DCATerminalState.AwaitingUserName;
+            return HarrisTerminalState.AwaitingUserName;
         }
         if (value == "quit") {
-            return DCATerminalState.Quit;
+            return HarrisTerminalState.Quit;
         }
         if (value == "connected") {
-            return DCATerminalState.Connected;
+            return HarrisTerminalState.Connected;
         }
         if (value == "busy") {
-            return DCATerminalState.LineBusy;
+            return HarrisTerminalState.LineBusy;
         }
         if (value == "fail call") {
-            return DCATerminalState.CallFailed;
+            return HarrisTerminalState.CallFailed;
         }
-        throw new DCAException("Failed to read config");
+        throw new HarrisException("Failed to read config");
     }
 }

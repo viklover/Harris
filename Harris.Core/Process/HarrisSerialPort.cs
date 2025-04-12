@@ -1,15 +1,15 @@
 using System.IO.Ports;
 using System.Runtime.CompilerServices;
 using System.Text;
-using DCA.Core.Extension;
-using DCA.Core.Model;
+using Harris.Core.Extension;
+using Harris.Core.Model;
 
-namespace DCA.Core.Process;
+namespace Harris.Core.Process;
 /// <summary>
 ///     Клиент DCA
 /// </summary>
-public class DCASerialPort : IDCAStateSource {
-    private readonly Dictionary<string, DCATerminalState> _config;
+public class HarrisSerialPort : IHarrisStateSource {
+    private readonly Dictionary<string, HarrisTerminalState> _config;
     /// <summary>
     ///     Серийный порт
     /// </summary>
@@ -19,7 +19,7 @@ public class DCASerialPort : IDCAStateSource {
     /// </summary>
     /// <param name="serialPort">Серийный порт</param>
     /// <param name="config">Конфигурация</param>
-    public DCASerialPort(SerialPort serialPort, Dictionary<string, DCATerminalState> config) {
+    public HarrisSerialPort(SerialPort serialPort, Dictionary<string, HarrisTerminalState> config) {
         SerialPort = serialPort;
         _config = config;
     }
@@ -28,7 +28,7 @@ public class DCASerialPort : IDCAStateSource {
     /// </summary>
     /// <param name="cancellationToken">Токен отмены асинхронной операции</param>
     /// <returns>Асинхронное перечисление с состояниями терминала</returns>
-    public async IAsyncEnumerable<DCATerminalState> ReadStatesAsync(
+    public async IAsyncEnumerable<HarrisTerminalState> ReadStatesAsync(
         [EnumeratorCancellation] CancellationToken cancellationToken
     ) {
         while (!cancellationToken.IsCancellationRequested) {

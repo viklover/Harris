@@ -1,6 +1,6 @@
 using System.IO.Ports;
 
-namespace DCA.Core.Extension;
+namespace Harris.Core.Extension;
 /// <summary>
 ///     Методы расширения для <see cref="SerialPort"/>
 /// </summary>

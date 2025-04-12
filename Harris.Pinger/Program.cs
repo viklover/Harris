@@ -1,13 +1,13 @@
 ﻿using System.IO.Ports;
 using CommandLine;
-using DCA.Core.Process;
-using DCA.Pinger;
+using Harris.Core.Process;
+using Harris.Pinger;
 
 var config = ResolveConfig(args);
-var configTerminalStates = DCAHelper.ReadTerminalStateFile(config.TerminalSpaceMappingFile);
+var configTerminalStates = HarrisHelper.ReadTerminalStateFile(config.TerminalSpaceMappingFile);
 
 var serialPort = new SerialPort(config.Port, config.BaudRate);
-var serialPortWrapper = new DCASerialPort(serialPort, configTerminalStates);
+var serialPortWrapper = new HarrisSerialPort(serialPort, configTerminalStates);
 
 serialPort.Open();
 

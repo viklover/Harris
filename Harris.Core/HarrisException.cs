@@ -1,11 +1,11 @@
-﻿namespace DCA.Core;
+﻿namespace Harris.Core;
 /// <summary>
 ///     Базовое исключение приложения
 /// </summary>
-public class DCAException : Exception {
+public class HarrisException : Exception {
     /// <summary>
     ///     Конструктор исключения
     /// </summary>
     /// <param name="message">Сообщение</param>
-    public DCAException(string message) : base(message) {}
+    public HarrisException(string message) : base(message) {}
 }

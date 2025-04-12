@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace DCA.Core.Test;
+﻿namespace Harris.Core.Test;
 
 [TestFixture]
 public class Tests {
